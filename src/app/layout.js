@@ -1,5 +1,6 @@
-import "./globals.css";
+import Header from "@/components/Header";
 import { Merriweather } from "next/font/google";
+import "./globals.css";
 
 const merriweather = Merriweather({
 	weight: ["400", "700"],
@@ -7,7 +8,7 @@ const merriweather = Merriweather({
 });
 
 export const metadata = {
-	title: "Nextclip",
+	title: "Netclip",
 	description:
 		"A video streaming service. It offers films and television series from various genres",
 };
@@ -15,7 +16,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body className={merriweather.className}>{children}</body>
+			<body className={merriweather.className}>
+				{/* Header */}
+				<Header />
+				{children}
+			</body>
 		</html>
 	);
 }
