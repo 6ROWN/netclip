@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Merriweather } from "next/font/google";
 import "./globals.css";
 import Providers from "./Providers";
@@ -22,6 +23,8 @@ export default function RootLayout({ children }) {
 					{/* Header */}
 					<Header />
 					{children}
+					{/* Footer */}
+					<Footer />
 				</Providers>
 			</body>
 		</html>
