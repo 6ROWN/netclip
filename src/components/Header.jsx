@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { TbMovie, TbInfoCircle } from "react-icons/tb";
+import DarkModeSwitch from "./DarkModeSwitch";
 
 const Header = () => {
 	return (
@@ -44,7 +45,7 @@ const Header = () => {
 							</Link>
 						</div>
 					</div>
-					<li>Dark mode</li>
+					<DarkModeSwitch />
 				</ul>
 			</div>
 		</nav>

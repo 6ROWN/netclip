@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import { Merriweather } from "next/font/google";
 import "./globals.css";
+import Providers from "./Providers";
 
 const merriweather = Merriweather({
 	weight: ["400", "700"],
@@ -17,9 +18,11 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body className={merriweather.className}>
-				{/* Header */}
-				<Header />
-				{children}
+				<Providers>
+					{/* Header */}
+					<Header />
+					{children}
+				</Providers>
 			</body>
 		</html>
 	);
