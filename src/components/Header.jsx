@@ -32,13 +32,13 @@ const Header = () => {
 						</div>
 						<div className="sm:inline hidden">
 							<Link
-								href={""}
+								href={"/movies"}
 								className="mr-12 hover:text-blue-700 font-bold"
 							>
 								MOVIES
 							</Link>
 							<Link
-								href={""}
+								href={"/about"}
 								className="hover:text-blue-700 font-bold"
 							>
 								ABOUT

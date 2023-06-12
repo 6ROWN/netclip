@@ -1,6 +1,8 @@
 import React from "react";
+import Link from "next/link";
 import CustomButton from "./CustomButton";
-const Hero = () => {
+
+const HeroSection = () => {
 	return (
 		<div
 			className={`bg-[url("/hero-img.jpg")] bg-cover bg-no-repeat h-screen brightness-50`}
@@ -12,10 +14,15 @@ const Hero = () => {
 				<p className="text-lg font-medium  text-white">
 					Ready to watch? Click the button to get started.
 				</p>
-				<CustomButton title={"GET STARTED"} />
+				<Link href="/movies" Link>
+					<CustomButton
+						title={"GET STARTED"}
+						color=" bg-indigo-700"
+					/>
+				</Link>
 			</div>
 		</div>
 	);
 };
 
-export default Hero;
+export default HeroSection;

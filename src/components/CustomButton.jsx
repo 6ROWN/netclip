@@ -1,10 +1,13 @@
 import React from "react";
 
-const CustomButton = ({ title }) => {
+const CustomButton = ({ title, color, type }) => {
 	return (
-		<div className="py-4 px-8 rounded bg-indigo-700 cursor-pointer font-semibold text-white">
+		<button
+			type={type}
+			className={` ${color} py-4 px-8 rounded cursor-pointer font-semibold first-line:text-white hover:brightness-200`}
+		>
 			{title}
-		</div>
+		</button>
 	);
 };
 
