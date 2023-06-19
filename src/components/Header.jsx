@@ -2,11 +2,11 @@ import React from "react";
 import Link from "next/link";
 import { TbMovie, TbInfoCircle } from "react-icons/tb";
 import DarkModeSwitch from "./DarkModeSwitch";
-
+import Navbar from "./Navbar";
 const Header = () => {
 	return (
-		<nav className="bg-indigo-950">
-			<div className="py-6 lg:px-20 px-10">
+		<div className="bg-indigo-950">
+			{/* <div className="py-6 lg:px-20 px-10">
 				<ul className="flex justify-between items-center">
 					<Link
 						href={"/"}
@@ -47,8 +47,9 @@ const Header = () => {
 					</div>
 					<DarkModeSwitch />
 				</ul>
-			</div>
-		</nav>
+			</div> */}
+			<Navbar />
+		</div>
 	);
 };
 

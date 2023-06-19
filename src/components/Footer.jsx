@@ -7,10 +7,10 @@ const Footer = () => {
 			<div className="flex justify-between items-center flex-col sm:flex-row gap-4">
 				<Link href="/" className="hover:text-blue-700">
 					{" "}
-					&copy; NetClips, 2023
+					NetClips, &copy; 2023
 				</Link>
 				<ul className="space-x-8">
-					<Link href={""} className="hover:text-blue-700">
+					<Link href={"/about"} className="hover:text-blue-700">
 						About
 					</Link>
 					<Link href={""} className="hover:text-blue-700">
