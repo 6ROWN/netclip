@@ -8,7 +8,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 const navItems = [
 	{
 		item: "Movies",
-		link: "/",
+		link: "/movies",
 	},
 	{
 		item: "About",
@@ -44,7 +44,7 @@ const Navbar = () => {
 					</Link>
 				</div>
 				<ul
-					className={` md:flex md:space-x-7 md:items-center md:w-auto h-screen md:h-10 md:m-auto absolute md:static md:z-auto z-10 bg-indigo-950 w-full top-[60px] py-8 md:py-0 ${
+					className={` md:flex md:space-x-7 md:items-center md:w-auto h-screen md:h-10 md:m-auto absolute md:static md:z-auto z-10 bg-indigo-950 w-full top-[60px] py-8 md:py-0 transition-all delay-300 ease-in ${
 						isOpen ? "left-0" : "left-full"
 					}`}
 				>

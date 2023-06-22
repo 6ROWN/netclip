@@ -38,7 +38,8 @@ const Newsletter = () => {
 				<di className="max-w-full mx-auto">
 					<CustomButton
 						title="GET STARTED"
-						color="bg-indigo-950"
+						color="text-white"
+						bgColor="bg-indigo-950"
 						type="submit"
 						className="max-w-full"
 					/>

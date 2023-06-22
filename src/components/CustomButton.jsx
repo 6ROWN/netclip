@@ -1,10 +1,14 @@
 import React from "react";
 
-const CustomButton = ({ title, color, type }) => {
+const CustomButton = ({ title, color, type, bgColor }) => {
 	return (
 		<button
 			type={type}
-			className={` ${color} py-4 px-8 rounded cursor-pointer font-semibold first-line:text-white hover:brightness-200`}
+			className={` ${color} ${
+				bgColor === "bg-transparent"
+					? `border border-${color} hover:bg-white hover:text-gray-900`
+					: bgColor
+			} py-4 px-8 rounded cursor-pointer font-semibold hover:brightness-200 transition-colors ease-in`}
 		>
 			{title}
 		</button>

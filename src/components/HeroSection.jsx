@@ -17,7 +17,8 @@ const HeroSection = () => {
 				<Link href="/movies" Link>
 					<CustomButton
 						title={"GET STARTED"}
-						color=" bg-indigo-700"
+						color="text-white"
+						bgColor="bg-indigo-950"
 					/>
 				</Link>
 			</div>
