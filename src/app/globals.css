@@ -4,6 +4,10 @@
 
 @layer components {
 	.custom-shadow {
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		text-shadow: 2px 2px 4px #000, -2px -2px 4px #000;
+	}
+
+	.white-shadow {
+		text-shadow: 2px 2px 4px #fff, -2px -2px 4px #fff;
 	}
 }

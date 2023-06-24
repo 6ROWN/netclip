@@ -16,8 +16,6 @@ const Banner = ({ netflixOriginals }) => {
 		);
 	}, [netflixOriginals]);
 
-	console.log(movie);
-
 	return (
 		<div className="w-full md:h-3/4 h-screen">
 			<div className="relative">
@@ -38,7 +36,7 @@ const Banner = ({ netflixOriginals }) => {
 						<span className="p-1 bg-yellow-400 rounded text-gray-900 font-black text-sm">
 							IMDb
 						</span>
-						<span className="inline-flex">
+						<span className="inline-flex items-center">
 							<AiFillStar className="text-yellow-400 text-lg" />{" "}
 							<span className="text-sm ml-2">
 								{movie?.vote_average} / 10

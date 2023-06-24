@@ -6,6 +6,6 @@ module.exports = {
 		"./src/app/**/*.{js,ts,jsx,tsx,mdx}",
 	],
 	theme: {},
-	plugins: [],
+	plugins: [require("tailwind-scrollbar-hide")],
 	darkMode: "class",
 };

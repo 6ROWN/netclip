@@ -1,6 +1,7 @@
 import React from "react";
 import requests from "../../utils/requests";
 import Banner from "@/components/Banner";
+import MovieRow from "@/components/MovieRow";
 
 const page = async () => {
 	const [
@@ -30,8 +31,17 @@ const page = async () => {
 	return (
 		<div>
 			{/* Banner - Showcase section */}
-
 			<Banner netflixOriginals={netflixOriginals} />
+			{/* Display the movies in a carousel */}
+			<section className="p-12">
+				<MovieRow title="Trending" movies={trending} />
+				<MovieRow title="top Rated" movies={topRated} />
+				<MovieRow title="Action" movies={actionMovies} />
+				<MovieRow title="Comedy" movies={comedyMovies} />
+				<MovieRow title="Horror" movies={horrorMovies} />
+				<MovieRow title="Romance" movies={romanceMovies} />
+				<MovieRow title="Documentaries" movies={documentaries} />
+			</section>
 		</div>
 	);
 };
