@@ -2,6 +2,7 @@ import React from "react";
 import { BASE_URL, API_KEY } from "@/utils/requests";
 import MovieDetails from "@/components/MovieDetails";
 import Cast from "@/components/Cast";
+import Crew from "@/components/Crew";
 
 const getMovie = async (movieId) => {
 	const response = await fetch(
@@ -25,6 +26,7 @@ const page = async ({ params: { movieId } }) => {
 		<div>
 			<MovieDetails movie={movie} />
 			<Cast casts={credits.cast} />
+			<Crew crews={credits.crew} />
 		</div>
 	);
 };

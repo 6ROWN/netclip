@@ -1,13 +1,9 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import requests from "../../utils/requests";
 import Banner from "@/components/Banner";
 import MovieRow from "@/components/MovieRow";
-import Modal from "@/components/Modal";
 
 const page = async () => {
-	//const [openModel, setOpenModel] = useState(false);
-
 	const [
 		trending,
 		netflixOriginals,
@@ -46,8 +42,6 @@ const page = async () => {
 				<MovieRow title="Romance" movies={romanceMovies} />
 				<MovieRow title="Documentaries" movies={documentaries} />
 			</section>
-			{/* Modal */}
-			{/* <Modal /> */}
 		</div>
 	);
 };

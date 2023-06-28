@@ -4,7 +4,7 @@ import React, { useState, useRef } from "react";
 import { baseUrl } from "@/constants/movie";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
-const Cast = ({ casts }) => {
+const Crew = ({ crews }) => {
 	const carouselRef = useRef(null);
 	const [isMoved, setIsMoved] = useState(false);
 
@@ -18,8 +18,8 @@ const Cast = ({ casts }) => {
 	};
 
 	return (
-		<main className="p-12">
-			<h1 className="pb-8">Top Billed Casts</h1>
+		<main className="px-12">
+			<h1 className="pb-8">Crew Members</h1>
 			<div className="relative">
 				<BsChevronLeft
 					onClick={handlePrev}
@@ -33,9 +33,9 @@ const Cast = ({ casts }) => {
 					ref={carouselRef}
 					className="flex flex-row overflow-x-auto space-x-8 scrollbar-hide items-center scroll-smooth"
 				>
-					{casts.map((cast) => {
-						const profilePath = cast.profile_path
-							? `${baseUrl}${cast.profile_path}`
+					{crews.map((crew) => {
+						const profilePath = crew.profile_path
+							? `${baseUrl}${crew.profile_path}`
 							: "/hero-img.jpg";
 
 						return (
@@ -48,10 +48,10 @@ const Cast = ({ casts }) => {
 								/>
 								<div className="flex flex-col justify-center items-center h-[80px] bg-indigo-950 text-gray-200 dark:bg-gray-200 dark:text-gray-700 pb-2">
 									<h3 className="text-sm text-center py-2 font-bold">
-										{cast?.name}
+										{crew?.name}
 									</h3>
 									<h4 className="text-xs text-center">
-										{cast?.character}
+										{crew?.job}
 									</h4>
 								</div>
 							</div>
@@ -67,4 +67,4 @@ const Cast = ({ casts }) => {
 	);
 };
 
-export default Cast;
+export default Crew;

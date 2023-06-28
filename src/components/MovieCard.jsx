@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import { baseUrl } from "@/constants/movie";
-import Modal from "./Modal";
 import Link from "next/link";
 
 const MovieCard = ({ movie }) => {
