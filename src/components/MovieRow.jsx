@@ -16,6 +16,8 @@ const MovieRow = ({ title, movies }) => {
 		carouselRef.current.scrollLeft -= carouselRef.current.offsetWidth;
 	};
 
+	// console.log(movies);
+
 	return (
 		<div className="py-8">
 			<h1 className="pb-8 font-bold uppercase transition duration-200 hover:brightness-75 ease-in cursor-pointer">

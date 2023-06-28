@@ -17,7 +17,7 @@ const Banner = ({ netflixOriginals }) => {
 	}, [netflixOriginals]);
 
 	return (
-		<div className="w-full md:h-3/4 h-screen">
+		<div className="w-full h-screen">
 			<div className="relative">
 				<Image
 					src={`${baseUrl}${
@@ -26,7 +26,7 @@ const Banner = ({ netflixOriginals }) => {
 					alt="Random image for showcase banner"
 					width={500}
 					height={500}
-					className=" object-cover w-full md:h-[80vh] h-screen"
+					className=" object-cover w-full h-screen"
 				/>
 				<div className="absolute top-0 left-0 flex justify-center flex-col md:h-[80vh] h-screen px-16 gap-12 md:gap-8 text-white custom-shadow">
 					<h1 className=" text-2xl md:text-4xl uppercase">
