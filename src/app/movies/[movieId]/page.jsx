@@ -25,8 +25,8 @@ const page = async ({ params: { movieId } }) => {
 	return (
 		<div>
 			<MovieDetails movie={movie} />
-			<Cast casts={credits.cast} />
-			<Crew crews={credits.crew} />
+			{credits.cast.length > 1 && <Cast casts={credits.cast} />}
+			{credits.crew.length > 1 && <Crew crews={credits.crew} />}
 		</div>
 	);
 };

@@ -28,7 +28,7 @@ const MovieRow = ({ title, movies }) => {
 					onClick={handlePrev}
 					className={`${
 						isMoved
-							? "text-3xl absolute top-0 bottom-0 m-auto left-2  opacity-100 transition hover:scale-125 cursor-pointer font-bold z-20 white-shadow"
+							? "text-3xl absolute top-0 bottom-0 m-auto left-2  opacity-100 transition hover:scale-125 cursor-pointer font-bold z-20 white-shadow text-white md:text-gray-700"
 							: "hidden"
 					}`}
 				/>
@@ -42,7 +42,7 @@ const MovieRow = ({ title, movies }) => {
 				</section>
 				<BsChevronRight
 					onClick={handleNext}
-					className="text-3xl absolute top-0 bottom-0 m-auto right-2 opacity-100 transition hover:scale-125 cursor-pointer font-bold white-shadow z-20"
+					className="text-3xl absolute top-0 bottom-0 m-auto right-2 opacity-100 transition hover:scale-125 cursor-pointer font-bold white-shadow z-20 text-white md:text-gray-700"
 				/>
 			</div>
 		</div>

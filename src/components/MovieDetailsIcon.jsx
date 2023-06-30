@@ -1,10 +1,8 @@
 "use client";
 import React from "react";
 import { TbListDetails, TbHeartPlus, TbBookmark } from "react-icons/tb";
-import { FaPlay } from "react-icons/fa";
 import { BiStar } from "react-icons/bi";
 import { Tooltip } from "react-tooltip";
-import Link from "next/link";
 
 const Info = [
 	{
@@ -41,10 +39,6 @@ const MovieDetailsIcon = () => {
 					<Tooltip id="my-tooltip" />
 				</div>
 			))}
-			<Link href="" className="inline-flex space-x-4">
-				<FaPlay className="text-2xl" />
-				<span>Play Trailer</span>
-			</Link>
 		</div>
 	);
 };

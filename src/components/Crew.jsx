@@ -18,7 +18,7 @@ const Crew = ({ crews }) => {
 	};
 
 	return (
-		<main className="px-12">
+		<main className="p-12">
 			<h1 className="pb-8">Crew Members</h1>
 			<div className="relative">
 				<BsChevronLeft
