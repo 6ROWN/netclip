@@ -26,7 +26,7 @@ const Modal = ({ closeModal, movieId }) => {
 					setTrailerKey(trailer.key);
 				}
 			} catch (error) {
-				console.log("Error " + error);
+				console.error("Error fetching trailer:", error);
 			}
 		};
 
