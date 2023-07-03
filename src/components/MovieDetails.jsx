@@ -96,7 +96,7 @@ const MovieDetails = ({ movie }) => {
 								<h1 className="underline font-bold">
 									Overview
 								</h1>
-								<h2 className="leading-8 text-sm md:text-base">
+								<h2 className="leading-10 text-sm md:text-base  truncate-4-lines overflow-hidden">
 									{movie?.overview}
 								</h2>
 							</section>

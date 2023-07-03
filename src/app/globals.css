@@ -10,4 +10,11 @@
 	.white-shadow {
 		text-shadow: 2px 2px 4px #fff, -2px -2px 4px #fff;
 	}
+
+	.truncate-4-lines {
+		display: -webkit-box;
+		-webkit-line-clamp: 4;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
 }

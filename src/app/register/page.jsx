@@ -3,39 +3,73 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { BiShow, BiHide } from "react-icons/bi";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { passwordRegex } from "@/utils/regexPassword";
 
 const page = () => {
-	const [name, setName] = useState("");
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
 
-	const handleName = (e) => {
-		setName(e.target.value);
+	//toggle password
+	const togglePassword = () => setShowPassword(!showPassword);
+
+	const schema = yup.object({
+		name: yup.string().required("Name is required"),
+		email: yup
+			.string()
+			.email("Invalid email")
+			.required("Email is required"),
+		password: yup
+			.string()
+			.required("Password is required")
+			.min(8, "Password must be at least 8 characters")
+			.matches(
+				passwordRegex,
+				"Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+			),
+		termsCheckBox: yup
+			.boolean()
+			.oneOf([true], "You must accept the terms and conditions"),
+	});
+
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({
+		defaultValues: {
+			name: "",
+			email: "",
+			password: "",
+			termsCheckBox: false,
+		},
+		resolver: yupResolver(schema),
+	});
+
+	const onSubmit = (data) => {
+		console.log(data);
+		//Logic here
 	};
 
-	const handleEmail = (e) => {
-		setEmail(e.target.value);
-	};
-
-	const handlePassword = (e) => {
-		setPassword(e.target.value);
-	};
-
-	const togglePassword = () => {
-		setShowPassword(!showPassword);
-	};
+	console.log(errors);
 
 	return (
 		<div
-			className={`min-h-screen bg-gray-100 flex justify-center items-center bg-[url("/hero-img.jpg")] bg-cover bg-no-repeat`}
+			className={`min-h-screen bg-gray-100 flex justify-center items-center bg-[url("/background-img.jpg")] bg-cover bg-no-repeat`}
 		>
 			<div className="bg-white text-gray-800 p-8 rounded shadow-md w-3/4 md:w-1/4">
-				<h2 className="text-2xl font-bold">Create account</h2>
-				<h3 className="text-xs mb-6 mt-1 text-gray-500">
+				<h2 className="text-2xl font-bold text-center">
+					Create account
+				</h2>
+				<h3 className="text-xs mb-6 mt-1 text-gray-500 text-center">
 					Let's get you started
 				</h3>
-				<form className="space-y-4">
+				<form
+					noValidate
+					onSubmit={handleSubmit(onSubmit)}
+					className="space-y-4"
+				>
 					<button
 						type="submit"
 						className="flex justify-center items-center space-x-4 w-full bg-gray-200 text-indigo-700 py-2 px-4 rounded"
@@ -60,10 +94,14 @@ const page = () => {
 						<input
 							type="name"
 							id="name"
-							className="w-full border border-gray-300 p-2 rounded bg-white"
-							value={name}
-							onChange={handleName}
+							className={` ${
+								errors.name && `border-red-600`
+							} w-full border border-gray-300 p-2 rounded bg-white focus:outline-none`}
+							{...register("name")}
 						/>
+						<p className="text-xs text-red-600 mt-2">
+							{errors.name?.message}
+						</p>
 					</div>
 					<div>
 						<label htmlFor="email" className="block mb-1 text-sm">
@@ -72,10 +110,14 @@ const page = () => {
 						<input
 							type="email"
 							id="email"
-							className="w-full border border-gray-300 p-2 rounded bg-white"
-							value={email}
-							onChange={handleEmail}
+							className={`${
+								errors.email && `border-red-600`
+							} w-full border border-gray-300 p-2 rounded bg-white focus:outline-none`}
+							{...register("email")}
 						/>
+						<p className="text-xs text-red-600 mt-2">
+							{errors.email?.message}
+						</p>
 					</div>
 					<div className="relative">
 						<label
@@ -87,10 +129,14 @@ const page = () => {
 						<input
 							type={showPassword ? "text" : "password"}
 							id="password"
-							className=" w-full border border-gray-300 p-2 rounded bg-white"
-							value={password}
-							onChange={handlePassword}
+							className={`w-full border border-gray-300 p-2 rounded bg-white ${
+								errors.password && `border-red-600`
+							}`}
+							{...register("password")}
 						/>
+						<p className="text-xs text-red-600 mt-2">
+							{errors.password?.message}
+						</p>
 						<div
 							onClick={togglePassword}
 							className="absolute top-9 right-5 text-2xl cursor-pointer"
@@ -98,18 +144,24 @@ const page = () => {
 							{showPassword ? <BiShow /> : <BiHide />}
 						</div>
 					</div>
-					<div className="flex justify-between items-center">
-						<div className="flex items-center space-x-1 ">
-							<input type="checkbox" id="remember" />
+					<div className="">
+						<div className="flex items-center space-x-2">
+							<input
+								type="checkbox"
+								id="terms"
+								{...register("termsCheckBox")}
+							/>
 							<label
-								htmlFor=""
-								for="remember"
-								className="text-xs"
+								htmlFor="terms"
+								className="text-xs block mb-1"
 							>
 								I agree to all the Terms, Privacy policy and
 								Fees
 							</label>
 						</div>
+						<p className="text-xs text-red-600 mt-2">
+							{errors.termsCheckBox?.message}
+						</p>
 					</div>
 
 					<button
@@ -121,7 +173,7 @@ const page = () => {
 
 					<div className="">
 						<Link
-							href={"/signIn"}
+							href={"/Login"}
 							className="flex items-center justify-center text-sm space-x-2 mt-8"
 						>
 							<span>Already have an account? </span>
