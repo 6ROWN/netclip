@@ -1,10 +1,11 @@
 import React from "react";
-import { BASE_URL, API_KEY } from "@/utils/requests";
-import MovieDetails from "@/components/MovieDetails";
-import Cast from "@/components/Cast";
-import Crew from "@/components/Crew";
+import { BASE_URL, API_KEY } from "@/app/utils/requests";
+import MovieDetails from "@/app/components/MovieDetails";
+import Cast from "@/app/components/Cast";
+import Crew from "@/app/components/Crew";
 
 const getMovie = async (movieId) => {
+	await new Promise((resolve) => setTimeout(resolve, 3000));
 	const response = await fetch(
 		`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`
 	);

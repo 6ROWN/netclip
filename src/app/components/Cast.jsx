@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useRef } from "react";
-import { baseUrl } from "@/constants/movie";
+import { baseUrl } from "@/app/constants/movie";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
-const Crew = ({ crews }) => {
+const Cast = ({ casts }) => {
 	const carouselRef = useRef(null);
 	const [isMoved, setIsMoved] = useState(false);
 
@@ -19,7 +19,7 @@ const Crew = ({ crews }) => {
 
 	return (
 		<main className="p-12">
-			<h1 className="pb-8">Crew Members</h1>
+			<h1 className="pb-8">Top Billed Casts</h1>
 			<div className="relative">
 				<BsChevronLeft
 					onClick={handlePrev}
@@ -33,10 +33,10 @@ const Crew = ({ crews }) => {
 					ref={carouselRef}
 					className="flex flex-row overflow-x-auto space-x-8 scrollbar-hide items-center scroll-smooth"
 				>
-					{crews.map((crew) => {
-						const profilePath = crew.profile_path
-							? `${baseUrl}${crew.profile_path}`
-							: "/hero-img.jpg";
+					{casts.map((cast) => {
+						const profilePath = cast.profile_path
+							? `${baseUrl}${cast.profile_path}`
+							: "/person.jpg";
 
 						return (
 							<div className="min-h-[300px] w-[180px]">
@@ -44,14 +44,15 @@ const Crew = ({ crews }) => {
 									src={profilePath}
 									width={100}
 									height={100}
+									alt="cast-photo"
 									className="min-w-[180px] h-[200px] rounded-tl rounded-tr"
 								/>
 								<div className="flex flex-col justify-center items-center h-[80px] bg-indigo-950 text-gray-200 dark:bg-gray-200 dark:text-gray-700 pb-2">
 									<h3 className="text-sm text-center py-2 font-bold">
-										{crew?.name}
+										{cast?.name}
 									</h3>
 									<h4 className="text-xs text-center">
-										{crew?.job}
+										{cast?.character}
 									</h4>
 								</div>
 							</div>
@@ -67,4 +68,4 @@ const Crew = ({ crews }) => {
 	);
 };
 
-export default Crew;
+export default Cast;

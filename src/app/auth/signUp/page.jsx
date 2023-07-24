@@ -6,9 +6,16 @@ import { BiShow, BiHide } from "react-icons/bi";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { passwordRegex } from "@/utils/regexPassword";
+import { passwordRegex } from "@/app/utils/regexPassword";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/app/config/firebase";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+import { ToastContainer, toast } from "react-toastify";
 
 const page = () => {
+	const router = useRouter();
+
 	const [showPassword, setShowPassword] = useState(false);
 
 	//toggle password
@@ -37,6 +44,7 @@ const page = () => {
 		register,
 		handleSubmit,
 		formState: { errors },
+		reset,
 	} = useForm({
 		defaultValues: {
 			name: "",
@@ -47,46 +55,65 @@ const page = () => {
 		resolver: yupResolver(schema),
 	});
 
-	const onSubmit = (data) => {
+	const onSubmit = async (data, e) => {
+		e.preventDefault();
 		console.log(data);
-		//Logic here
-	};
 
-	console.log(errors);
+		try {
+			const userCredentials = await createUserWithEmailAndPassword(
+				auth,
+				data.email,
+				data.password
+			);
+
+			if (userCredentials.user) {
+				toast.success("User created successfully");
+				// Perform any necessary actions upon successful user creation
+				router.push("/movies");
+			}
+		} catch (err) {
+			console.log("Problem creating account:", err.message);
+			toast.error("Email already in use");
+		}
+	};
 
 	return (
 		<div
-			className={`min-h-screen bg-gray-100 flex justify-center items-center bg-[url("/background-img.jpg")] bg-cover bg-no-repeat`}
+			className={`min-h-screen bg-gray-100 flex justify-center items-center bg-[url("/theatre.jpg")] bg-cover bg-no-repeat`}
 		>
-			<div className="bg-white text-gray-800 p-8 rounded shadow-md w-3/4 md:w-1/4">
+			<div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+
+			<div className="z-10 bg-white text-gray-800 p-8 rounded shadow-md w-3/4 md:w-1/4">
 				<h2 className="text-2xl font-bold text-center">
 					Create account
 				</h2>
 				<h3 className="text-xs mb-6 mt-1 text-gray-500 text-center">
 					Let's get you started
 				</h3>
+				<button
+					onClick={() => signIn("google", { callbackUrl: "/movies" })}
+					type="submit"
+					className="flex justify-center items-center space-x-4 w-full bg-gray-200 text-indigo-700 py-2 px-4 rounded"
+				>
+					<Image
+						src={"/google-logo.png"}
+						width={50}
+						height={50}
+						alt="google-logo"
+						className="w-5 h-5"
+					/>
+					<span className="text-sm"> Login with Google</span>
+				</button>
+				<div className="flex items-center my-4">
+					<hr className="flex-grow border-t border-gray-300 mr-4" />
+					<span className="text-gray-500">OR</span>
+					<hr className="flex-grow border-t border-gray-300 ml-4" />
+				</div>
 				<form
 					noValidate
 					onSubmit={handleSubmit(onSubmit)}
 					className="space-y-4"
 				>
-					<button
-						type="submit"
-						className="flex justify-center items-center space-x-4 w-full bg-gray-200 text-indigo-700 py-2 px-4 rounded"
-					>
-						<Image
-							src={"/google-logo.png"}
-							width={50}
-							height={50}
-							className="w-5 h-5"
-						/>
-						<span className="text-sm"> Login with Google</span>
-					</button>
-					<div className="flex items-center">
-						<hr className="flex-grow border-t border-gray-300 mr-4" />
-						<span className="text-gray-500">OR</span>
-						<hr className="flex-grow border-t border-gray-300 ml-4" />
-					</div>
 					<div>
 						<label htmlFor="email" className="block mb-1 text-sm">
 							Name
@@ -171,16 +198,18 @@ const page = () => {
 						Sign Up
 					</button>
 
-					<div className="">
-						<Link
-							href={"/Login"}
-							className="flex items-center justify-center text-sm space-x-2 mt-8"
-						>
-							<span>Already have an account? </span>
-							<span>Log in</span>
+					<div className="text-center text-xs mt-8 font-medium hover:font-semibold">
+						<Link href={"/auth/signIn"}>
+							Already have an account? Login
 						</Link>
 					</div>
 				</form>
+				<ToastContainer
+					position="top-center"
+					autoClose={5000}
+					hideProgressBar={false}
+					closeOnClick
+				/>
 			</div>
 		</div>
 	);

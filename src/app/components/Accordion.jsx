@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import AccordionItem from "./Newsletter";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdRemove } from "react-icons/md";
 

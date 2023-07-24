@@ -1,8 +1,8 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { Merriweather } from "next/font/google";
 import "./globals.css";
 import Providers from "./Providers";
+import AuthProvider from "./context/AuthProvider";
+import "react-toastify/dist/ReactToastify.css";
 
 const merriweather = Merriweather({
 	weight: ["400", "700"],
@@ -19,13 +19,9 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body className={`${merriweather.className} overflow-x-hidden`}>
-				<Providers>
-					{/* Header */}
-					<Header />
-					{children}
-					{/* Footer */}
-					<Footer />
-				</Providers>
+				<AuthProvider>
+					<Providers>{children}</Providers>
+				</AuthProvider>
 			</body>
 		</html>
 	);

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { baseUrl } from "@/constants/movie";
+import { baseUrl } from "@/app/constants/movie";
 import Link from "next/link";
 
 const MovieCard = ({ movie }) => {
@@ -13,6 +13,7 @@ const MovieCard = ({ movie }) => {
 				src={`${baseUrl}${movie?.poster_path}`}
 				width={100}
 				height={100}
+				alt="movie-poster"
 				className="h-full w-full rounded-lg transform delay-200 ease-in hover:scale-110"
 			/>
 		</Link>

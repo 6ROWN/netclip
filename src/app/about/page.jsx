@@ -1,7 +1,7 @@
-import AboutCards from "@/components/AboutCards";
-import AboutHero from "@/components/AboutHero";
-import Accordion from "@/components/Accordion";
-import Newsletter from "@/components/Newsletter";
+import AboutCards from "../components/AboutCards";
+import AboutHero from "../components/AboutHero";
+import Accordion from "../components/Accordion";
+import Newsletter from "../components/Newsletter";
 
 import React from "react";
 

@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { BASE_URL } from "@/utils/requests";
-import { API_KEY } from "@/utils/requests";
+import { BASE_URL } from "@/app/utils/requests";
+import { API_KEY } from "@/app/utils/requests";
 import { Tooltip } from "react-tooltip";
 
 const Modal = ({ closeModal, movieId }) => {

@@ -25,7 +25,7 @@ const Info = [
 
 const MovieDetailsIcon = () => {
 	return (
-		<div className="inline-flex space-x-4 md:space-x-8">
+		<div className="hidden md:inline-flex space-x-12">
 			{Info.map((info) => (
 				<div>
 					<span

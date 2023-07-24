@@ -1,9 +1,12 @@
+"use client";
 import React from "react";
-import requests from "../../utils/requests";
-import Banner from "@/components/Banner";
-import MovieRow from "@/components/MovieRow";
+import requests from "../utils/requests";
+import Banner from "@/app/components/Banner";
+import MovieRow from "@/app/components/MovieRow";
 
 const page = async () => {
+	await new Promise((resolve) => setTimeout(resolve, 3000));
+
 	const [
 		trending,
 		netflixOriginals,
