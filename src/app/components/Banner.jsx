@@ -8,6 +8,11 @@ import { MdOutlineWatchLater } from "react-icons/md";
 
 const Banner = ({ netflixOriginals }) => {
 	const [movie, setMovie] = useState(null);
+	const [imageError, setImageError] = useState(false);
+
+	const handleImageError = () => {
+		setImageError(true);
+	};
 
 	useEffect(() => {
 		setMovie(
@@ -20,15 +25,28 @@ const Banner = ({ netflixOriginals }) => {
 	return (
 		<div className="w-full h-screen">
 			<div className="relative">
-				<Image
-					src={`${baseUrl}${
-						movie?.backdrop_path || movie?.poster_path
-					}`}
-					alt="Random image for showcase banner"
-					width={500}
-					height={500}
-					className=" object-cover w-full h-screen"
-				/>
+				{!imageError ? (
+					<Image
+						src={`${baseUrl}${
+							movie?.backdrop_path || movie?.poster_path
+						}`}
+						alt="Random image for showcase banner"
+						width={500}
+						height={500}
+						className=" object-cover w-full h-screen"
+						priority
+						onError={handleImageError}
+					/>
+				) : (
+					<Image
+						src={`/theatre.jpg`}
+						width={100}
+						height={100}
+						alt="movie-poster"
+						className="h-full w-full rounded-lg transform delay-200 ease-in hover:scale-110"
+					/>
+				)}
+
 				<div className="absolute top-0 left-0 flex justify-center flex-col md:h-[80vh] h-screen px-8 md:px-16 gap-12 md:gap-8 text-white custom-shadow text-center md:text-left">
 					<h1 className="text-2xl md:text-4xl uppercase">
 						{movie?.original_title || movie?.title}
@@ -48,7 +66,7 @@ const Banner = ({ netflixOriginals }) => {
 							{new Date(movie?.release_date).getFullYear()}
 						</span>
 					</div>
-					<h2 className="md:w-3/5 w-full  md:leading-10 leading-8 truncate-2-lines md:truncate-4-lines ">
+					<h2 className="md:w-3/5 w-full  md:leading-10 leading-8 truncate-3-lines md:truncate-4-lines ">
 						{movie?.overview}
 					</h2>
 					<div className="flex flex-col gap-y-6 md:flex-row md:gap-x-8">

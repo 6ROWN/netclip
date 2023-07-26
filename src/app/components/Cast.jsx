@@ -33,13 +33,16 @@ const Cast = ({ casts }) => {
 					ref={carouselRef}
 					className="flex flex-row overflow-x-auto space-x-8 scrollbar-hide items-center scroll-smooth"
 				>
-					{casts.map((cast) => {
+					{casts.map((cast, index) => {
 						const profilePath = cast.profile_path
 							? `${baseUrl}${cast.profile_path}`
 							: "/person.jpg";
 
 						return (
-							<div className="min-h-[300px] w-[180px]">
+							<div
+								key={index}
+								className="min-h-[300px] w-[180px]"
+							>
 								<Image
 									src={profilePath}
 									width={100}

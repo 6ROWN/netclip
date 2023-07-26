@@ -35,7 +35,7 @@ const Newsletter = () => {
 					className=" rounded p-4 grow border border-indigo-950 outline-none dark:border-none"
 					onChange={handleChange}
 				/>
-				<di className="max-w-full mx-auto">
+				<div className="max-w-full mx-auto">
 					<CustomButton
 						title="GET STARTED"
 						color="text-white"
@@ -43,7 +43,7 @@ const Newsletter = () => {
 						type="submit"
 						className="max-w-full"
 					/>
-				</di>
+				</div>
 			</form>
 		</div>
 	);

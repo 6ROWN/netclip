@@ -50,7 +50,7 @@ const LoginForm = () => {
 		<div
 			className={`min-h-screen bg-gray-100 flex justify-center items-center bg-[url("/hero-img.jpg")] bg-cover bg-no-repeat`}
 		>
-			<div class="absolute top-0 left-0 w-full h-full bg-black opacity-75"></div>
+			<div className="absolute top-0 left-0 w-full h-full bg-black opacity-75"></div>
 
 			<div className="z-10 bg-white text-gray-800 p-8 rounded shadow-md w-3/4 md:w-1/4 ">
 				<div className="text-2xl font-bold mb-4 flex justify-between items-center">

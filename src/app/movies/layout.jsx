@@ -15,18 +15,17 @@ const layout = ({ children }) => {
 		// },
 	});
 
-	if (status === "loading") {
-		// Render a loading state while the session is being fetched
-		return <div></div>;
-	}
-
 	useEffect(() => {
 		if (status !== "authenticated") {
 			// Redirect to the home page if the user is not authenticated
 			router.push("/");
-			null;
 		}
 	}, [router, status]);
+
+	if (status === "loading") {
+		// Render a loading state while the session is being fetched
+		return <div></div>;
+	}
 
 	return (
 		<div>

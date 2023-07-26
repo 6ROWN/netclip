@@ -33,13 +33,16 @@ const Crew = ({ crews }) => {
 					ref={carouselRef}
 					className="flex flex-row overflow-x-auto space-x-8 scrollbar-hide items-center scroll-smooth"
 				>
-					{crews.map((crew) => {
+					{crews.map((crew, index) => {
 						const profilePath = crew.profile_path
 							? `${baseUrl}${crew.profile_path}`
 							: "/person.jpg";
 
 						return (
-							<div className="min-h-[300px] w-[180px]">
+							<div
+								key={index}
+								className="min-h-[300px] w-[180px]"
+							>
 								<Image
 									src={profilePath}
 									width={100}

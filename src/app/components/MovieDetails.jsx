@@ -10,6 +10,12 @@ import Modal from "./Modal";
 const MovieDetails = ({ movie }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
+	const [imageError, setImageError] = useState(false);
+
+	const handleImageError = () => {
+		setImageError(true);
+	};
+
 	const openModal = () => {
 		setIsOpen(true);
 	};
@@ -21,15 +27,28 @@ const MovieDetails = ({ movie }) => {
 	return (
 		<div>
 			<div className="w-full h-[70vh] relative">
-				<Image
-					src={`${baseUrl}${
-						movie?.backdrop_path || movie?.poster_path
-					}`}
-					width={100}
-					height={100}
-					alt="movie-poster"
-					className="w-full h-full object-cover "
-				/>
+				{!imageError ? (
+					<Image
+						src={`${baseUrl}${
+							movie?.backdrop_path || movie?.poster_path
+						}`}
+						width={100}
+						height={100}
+						alt="movie-poster"
+						className="w-full h-full object-cover "
+						priority
+						onError={handleImageError}
+					/>
+				) : (
+					<Image
+						src={`/theatre.jpg`}
+						width={100}
+						height={100}
+						alt="movie-poster"
+						className="w-full h-full object-cover"
+					/>
+				)}
+
 				<div className="h-full absolute top-0 left-0 flex items-center justify-center">
 					<div className=" px-8 md:px-20 grid grid-rows md:grid-cols-2 ">
 						<div className="">
@@ -37,16 +56,28 @@ const MovieDetails = ({ movie }) => {
 								className="group relative mx-auto shadow-lg w-[300px] h-[400px] drop-shadow-2xl hidden md:block cursor-pointer"
 								onClick={openModal}
 							>
-								<Image
-									src={`${baseUrl}${
-										movie?.backdrop_path ||
-										movie?.poster_path
-									}`}
-									width={100}
-									height={100}
-									alt="movie-poster"
-									className="object-cover w-full h-full rounded-xl hidden md:block shadow-white opacity-100 hover:opacity-50 transition-opacity duration-300"
-								/>
+								{!imageError ? (
+									<Image
+										src={`${baseUrl}${
+											movie?.backdrop_path ||
+											movie?.poster_path
+										}`}
+										width={100}
+										height={100}
+										alt="movie-poster"
+										className="object-cover w-full h-full rounded-xl hidden md:block shadow-white opacity-100 hover:opacity-50 transition-opacity duration-300"
+										onError={handleImageError}
+									/>
+								) : (
+									<Image
+										src={`/theatre.jpg`}
+										width={100}
+										height={100}
+										alt="movie-poster"
+										className="object-cover w-full h-full rounded-xl hidden md:block shadow-white opacity-100 hover:opacity-50 transition-opacity duration-300"
+									/>
+								)}
+
 								<div className="opacity-0  group-hover:opacity-100 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center inline-flex ">
 									<BiExpand className="text-2xl mr-2" />
 									<span>Expand</span>
@@ -71,8 +102,8 @@ const MovieDetails = ({ movie }) => {
 								{/* Genres */}
 								<span>
 									[
-									{movie?.genres.map((genre) => (
-										<span className="mr-2">
+									{movie?.genres.map((genre, index) => (
+										<span key={index} className="mr-2">
 											{genre.name}
 										</span>
 									))}

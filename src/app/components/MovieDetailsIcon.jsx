@@ -26,8 +26,8 @@ const Info = [
 const MovieDetailsIcon = () => {
 	return (
 		<div className="hidden md:inline-flex space-x-12">
-			{Info.map((info) => (
-				<div>
+			{Info.map((info, index) => (
+				<div key={index}>
 					<span
 						data-tooltip-id="my-tooltip"
 						data-tooltip-content={info.text}

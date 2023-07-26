@@ -19,7 +19,7 @@ const AboutHero = () => {
 					alt="hero"
 					width={500}
 					height={500}
-					className="rounded"
+					className="rounded h-auto w-auto"
 				/>
 			</div>
 		</div>
