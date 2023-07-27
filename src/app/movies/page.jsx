@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import requests from "../utils/requests";
 import Banner from "@/app/components/Banner";

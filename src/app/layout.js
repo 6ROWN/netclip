@@ -2,7 +2,12 @@ import "./globals.css";
 import Providers from "./Providers";
 import AuthProvider from "./context/AuthProvider";
 import "react-toastify/dist/ReactToastify.css";
-import { merriweather } from "@/app/utils/font";
+import { Merriweather } from "next/font/google";
+
+const merriweather = Merriweather({
+	weight: ["400", "700"],
+	subsets: ["latin"],
+});
 
 export const metadata = {
 	title: "Netclip",
@@ -12,10 +17,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="en">
+		<html lang="en" className={merriweather.className}>
 			<body
+				className={` overflow-x-hidden`}
 				suppressHydrationWarning={true}
-				className={`${merriweather.className} overflow-x-hidden`}
 			>
 				<Providers>
 					<AuthProvider>{children}</AuthProvider>

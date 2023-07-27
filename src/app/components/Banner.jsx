@@ -5,10 +5,12 @@ import { baseUrl } from "@/app/constants/movie";
 import { AiFillStar } from "react-icons/ai";
 import { BiPlayCircle } from "react-icons/bi";
 import { MdOutlineWatchLater } from "react-icons/md";
+import { useRouter } from "next/navigation";
 
 const Banner = ({ netflixOriginals }) => {
 	const [movie, setMovie] = useState(null);
 	const [imageError, setImageError] = useState(false);
+	const router = useRouter();
 
 	const handleImageError = () => {
 		setImageError(true);
@@ -36,6 +38,8 @@ const Banner = ({ netflixOriginals }) => {
 						className=" object-cover w-full h-screen"
 						priority
 						onError={handleImageError}
+						placeholder="blur"
+						blurDataURL={"/theatre.jpg"}
 					/>
 				) : (
 					<Image
@@ -70,7 +74,10 @@ const Banner = ({ netflixOriginals }) => {
 						{movie?.overview}
 					</h2>
 					<div className="flex flex-col gap-y-6 md:flex-row md:gap-x-8">
-						<div className="flex justify-center space-x-3 items-center py-4 px-8 bg-gray-200 rounded text-gray-900 drop-shadow-lg border border-gray-200 cursor-pointer hover:bg-transparent hover:text-gray-200 hover:custom-shadow font-bold white-shadow ">
+						<div
+							className="flex justify-center space-x-3 items-center py-4 px-8 bg-gray-200 rounded text-gray-900 drop-shadow-lg border border-gray-200 cursor-pointer hover:bg-transparent hover:text-gray-200 hover:custom-shadow font-bold white-shadow "
+							onClick={() => router.push(`movies/${movie?.id}`)}
+						>
 							<span> PLAY</span> <BiPlayCircle size={24} />
 						</div>
 						<div className="flex justify-center items-center space-x-3 py-4 px-8 border border-gray-200 rounded drop-shadow-lg cursor-pointer hover:bg-gray-200 hover:text-gray-900 hover:white-shadow font-bold">

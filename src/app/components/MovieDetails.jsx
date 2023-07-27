@@ -38,6 +38,8 @@ const MovieDetails = ({ movie }) => {
 						className="w-full h-full object-cover "
 						priority
 						onError={handleImageError}
+						placeholder="blur"
+						blurDataURL={"/theatre.jpg"}
 					/>
 				) : (
 					<Image
