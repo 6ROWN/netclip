@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Footer from "../components/Footer";
+import loading from "../loading";
 
 const layout = ({ children }) => {
 	const router = useRouter();
@@ -24,7 +25,7 @@ const layout = ({ children }) => {
 
 	if (status === "loading") {
 		// Render a loading state while the session is being fetched
-		return <div></div>;
+		loading;
 	}
 
 	return (

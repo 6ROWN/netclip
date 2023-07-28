@@ -5,7 +5,6 @@ import MovieCard from "./MovieCard";
 import { useRouter } from "next/navigation";
 
 const MovieRow = ({ title, movies }) => {
-	const router = useRouter();
 	const carouselRef = useRef(null);
 	const [isMoved, setIsMoved] = useState(false);
 

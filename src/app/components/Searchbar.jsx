@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BiSearch } from "react-icons/bi";
 import { useRouter } from "next/navigation";
 
@@ -13,7 +13,7 @@ const Searchbar = () => {
 		if (!query) {
 			console.log("nothing to render");
 		} else {
-			router.push(`movies/searchMovies/${query}`);
+			router.push(`/movies/searchMovies/${query}`);
 			setQuery("");
 		}
 	};

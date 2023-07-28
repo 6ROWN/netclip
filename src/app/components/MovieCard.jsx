@@ -3,17 +3,25 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { baseUrl } from "@/app/constants/movie";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const MovieCard = ({ movie }) => {
 	const [imageError, setImageError] = useState(false);
+	const router = useRouter();
 
 	const handleImageError = () => {
 		setImageError(true);
 	};
+
+	const handleNavigation = () => {
+		router.push(`/movies/${movie?.id}`);
+	};
+
 	return (
-		<Link
-			href={`movies/${movie?.id}`}
-			className="min-w-[250px] h-[300px] cursor-pointer"
+		<div
+			onClick={handleNavigation}
+			// href={`/movies/${movie?.id}`}
+			className="min-w-[250px] h-[300px]"
 		>
 			{!imageError ? (
 				<Image
@@ -21,7 +29,7 @@ const MovieCard = ({ movie }) => {
 					width={100}
 					height={100}
 					alt="movie-poster"
-					className="h-full w-full rounded-lg transform delay-200 ease-in hover:scale-110"
+					className="h-full w-full rounded-lg transform delay-200 ease-in hover:scale-110 cursor-pointer"
 					onError={handleImageError}
 				/>
 			) : (
@@ -30,10 +38,10 @@ const MovieCard = ({ movie }) => {
 					width={100}
 					height={100}
 					alt="movie-poster"
-					className="h-full w-full rounded-lg transform delay-200 ease-in hover:scale-110"
+					className="h-full w-full rounded-lg transform delay-200 ease-in hover:scale-110 cursor-pointer"
 				/>
 			)}
-		</Link>
+		</div>
 	);
 };
 
