@@ -12,6 +12,7 @@ import { auth } from "@/app/config/firebase";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { ToastContainer, toast } from "react-toastify";
+import { IoMdArrowBack } from "react-icons/io";
 
 const page = () => {
 	const router = useRouter();
@@ -79,9 +80,15 @@ const page = () => {
 
 	return (
 		<div
-			className={`min-h-screen bg-gray-100 flex justify-center items-center bg-[url("/theatre.jpg")] bg-cover bg-no-repeat`}
+			className={`min-h-screen bg-gray-100 flex justify-center items-center bg-[url("/theatre.jpg")] bg-cover bg-no-repeat relative`}
 		>
-			<div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+			<Link
+				href={"/"}
+				className="z-10 text-white absolute top-8 left-4 md:left-8"
+			>
+				<IoMdArrowBack size={24} />
+			</Link>
+			<div className="absolute top-0 left-0 w-full h-screen bg-black opacity-50"></div>
 
 			<div className="z-10 bg-white text-gray-800 p-8 rounded shadow-md w-3/4 md:w-1/4">
 				<h2 className="text-2xl font-bold text-center">
@@ -176,6 +183,7 @@ const page = () => {
 							<input
 								type="checkbox"
 								id="terms"
+								className=" accent-blue-700 bg-gray-200"
 								{...register("termsCheckBox")}
 							/>
 							<label

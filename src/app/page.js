@@ -4,6 +4,7 @@ import HeroSection from "./components/HeroSection";
 import Newsletter from "./components/Newsletter";
 import Accordion from "./components/Accordion";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function Home() {
 	return (
@@ -14,6 +15,7 @@ export default function Home() {
 			<Accordion />
 			<Newsletter />
 			<Footer />
+			<ScrollToTop />
 		</main>
 	);
 }

@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Footer from "../components/Footer";
 import loading from "../loading";
+import ScrollToTop from "../components/ScrollToTop";
 
 const layout = ({ children }) => {
 	const router = useRouter();
@@ -32,7 +33,7 @@ const layout = ({ children }) => {
 		<div>
 			<Header />
 			<div className="flex flex-col min-h-[80vh]">{children}</div>
-
+			<ScrollToTop />
 			<Footer />
 		</div>
 	);

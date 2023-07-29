@@ -26,7 +26,10 @@ const HeroSection = () => {
 					/>
 				</Link>
 			</div>
-			<div className="px-4 md:px-0 flex flex-col items-center justify-center min-h-screen gap-[40px] custom-shadow">
+			<div
+				className="px-4 md:px-0 flex flex-col items-center justify-center min-h-screen gap-[40px] custom-shadow
+			"
+			>
 				<h1 className="font-black text-3xl md:text-4xl text-white text-center">
 					Unlimited movies, TV shows, and more
 				</h1>

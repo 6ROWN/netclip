@@ -9,6 +9,7 @@ import { auth } from "@/app/config/firebase";
 import DarkModeSwitch from "./DarkModeSwitch";
 import { MdSettings, MdOutlineLogout } from "react-icons/md";
 import Link from "next/link";
+import { FiChevronDown } from "react-icons/fi";
 
 const NavPanel = () => {
 	const { data: session } = useSession();
@@ -30,19 +31,23 @@ const NavPanel = () => {
 					</div>
 					<Searchbar />
 					<div className="" onClick={handleToggle}>
-						<button className="cursor-pointer">
-							{session?.user?.image ? (
-								<Image
-									src={session?.user?.image}
-									width={50}
-									height={50}
-									alt="user-image"
-									className="rounded-full w-10 h-10 hover:border-2 hover:border-gray-200"
-								/>
-							) : (
-								<FaUserCircle size={28} />
-							)}
-						</button>
+						<div className="cursor-pointer flex items-center justify-center group">
+							<button className="">
+								{session?.user?.image ? (
+									<Image
+										src={session?.user?.image}
+										width={50}
+										height={50}
+										alt="user-image"
+										className="rounded-full w-10 h-10 group-hover:border-2 group-hover:border-gray-200"
+									/>
+								) : (
+									<FaUserCircle size={28} />
+								)}
+							</button>
+							<FiChevronDown size={18} color="#fff" />
+						</div>
+
 						{isOpen && (
 							<div className="absolute right-10 top-[130px] md:top-20 z-20 dark:bg-gray-700 bg-gray-200 rounded-lg drop-shadow-lg">
 								<ul className="w-64 p-4 flex flex-col items-center space-y-4 dark:text-gray-200 text-gray-700 text-sm ">
