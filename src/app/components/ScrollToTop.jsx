@@ -32,7 +32,7 @@ const ScrollToTop = () => {
 			onClick={scrollToTop}
 			className={`${
 				isVisible ? "block" : "hidden"
-			} fixed bottom-10 right-10 p-4 rounded-full bg-blue-700 hover:bg-blue-950 text-white shadow-md`}
+			} fixed bottom-10 right-10 p-4 rounded-full bg-indigo-900 hover:bg-indigo-950 text-white shadow-md`}
 		>
 			<div>
 				<BsChevronUp size={20} />

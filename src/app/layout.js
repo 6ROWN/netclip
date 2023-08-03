@@ -2,11 +2,12 @@ import "./globals.css";
 import Providers from "./Providers";
 import AuthProvider from "./context/AuthProvider";
 import "react-toastify/dist/ReactToastify.css";
-import { Merriweather } from "next/font/google";
+import { Roboto } from "next/font/google";
 
-const merriweather = Merriweather({
-	weight: ["400", "700"],
+const roboto = Roboto({
+	weight: "500",
 	subsets: ["latin"],
+	display: "swap",
 });
 
 export const metadata = {
@@ -17,7 +18,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="en" className={merriweather.className}>
+		<html lang="en" className={roboto.className}>
 			<body
 				className={` overflow-x-hidden`}
 				suppressHydrationWarning={true}

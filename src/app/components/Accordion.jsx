@@ -49,7 +49,7 @@ const Accordion = () => {
 							onClick={() => toggle(index)}
 							className="min-w-full bg-indigo-950 p-6  flex justify-between hover:brightness-75"
 						>
-							<h1 className="text-xl font-bold text-gray-200">
+							<h1 className="text-lg text-gray-200">
 								{data.title}
 							</h1>
 							<span>

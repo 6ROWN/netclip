@@ -14,7 +14,7 @@ const DarkModeSwitch = () => {
 	}, []);
 
 	const handleThemeChange = () => {
-		const newTheme = currentTheme === "dark" ? "light" : "dark";
+		const newTheme = currentTheme === "light" ? "dark" : "light";
 		setTheme(newTheme);
 	};
 

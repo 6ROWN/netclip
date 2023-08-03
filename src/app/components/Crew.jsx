@@ -18,8 +18,8 @@ const Crew = ({ crews }) => {
 	};
 
 	return (
-		<main className="p-12">
-			<h1 className="pb-8">Crew Members</h1>
+		<main className="p-12 pt-0">
+			<h1 className="pb-8 font-semibold">Crew Members</h1>
 			<div className="relative">
 				<BsChevronLeft
 					onClick={handlePrev}

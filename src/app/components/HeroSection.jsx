@@ -30,10 +30,10 @@ const HeroSection = () => {
 				className="px-4 md:px-0 flex flex-col items-center justify-center min-h-screen gap-[40px] custom-shadow
 			"
 			>
-				<h1 className="font-black text-3xl md:text-4xl text-white text-center">
+				<h1 className="font-black text-3xl md:text-5xl text-white text-center">
 					Unlimited movies, TV shows, and more
 				</h1>
-				<p className="text-lg font-medium  text-white text-center">
+				<p className="text-2xl font-medium  text-white text-center">
 					Ready to watch? Click the button to get started.
 				</p>
 				<Link

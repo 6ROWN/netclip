@@ -55,11 +55,11 @@ const Banner = ({ netflixOriginals }) => {
 					<h1 className="text-2xl md:text-4xl uppercase">
 						{movie?.original_title || movie?.title}
 					</h1>
-					<div className="flex flex-row items-center justify-center md:justify-start gap-x-8">
-						<span className="p-1 bg-yellow-400 rounded text-gray-900 font-black text-sm">
+					<div className="flex flex-row items-center justify-center md:justify-start gap-x-8 ">
+						<span className="p-1 bg-yellow-400 rounded text-gray-900 font-black text-sm white-shadow">
 							IMDb
 						</span>
-						<span className="inline-flex items-center">
+						<span className="inline-flex items-center ">
 							<AiFillStar className="text-yellow-400 text-lg" />{" "}
 							<span className="text-sm ml-2">
 								{movie?.vote_average} / 10

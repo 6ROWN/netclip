@@ -19,7 +19,7 @@ const Cast = ({ casts }) => {
 
 	return (
 		<main className="p-12">
-			<h1 className="pb-8">Top Billed Casts</h1>
+			<h1 className="pb-8 font-semibold">Top Billed Casts</h1>
 			<div className="relative">
 				<BsChevronLeft
 					onClick={handlePrev}

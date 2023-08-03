@@ -5,6 +5,7 @@ import Newsletter from "./components/Newsletter";
 import Accordion from "./components/Accordion";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import AnyDevices from "./components/AnyDevices";
 
 export default function Home() {
 	return (
@@ -12,6 +13,7 @@ export default function Home() {
 			<HeroSection />
 			<AboutHero />
 			<AboutCards />
+			<AnyDevices />
 			<Accordion />
 			<Newsletter />
 			<Footer />
